@@ -1,0 +1,10 @@
+<launch>
+    <arg name="robot_name" />
+    <arg name="initial_pose" />
+
+    <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" respawn="false"
+        output="screen" args="$(arg initial_pose) -urdf -param /robot_description -model $(arg robot_name)" />
+
+    <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" output="screen" />
+
+</launch>
